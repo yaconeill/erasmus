@@ -1,0 +1,13 @@
+{
+  "minify": true,
+  "options": [
+    "mq",
+    "setClasses"
+  ],
+  "feature-detects": [
+    "test/canvas",
+    "test/canvastext",
+    "test/geolocation",
+    "test/json"
+  ]
+}

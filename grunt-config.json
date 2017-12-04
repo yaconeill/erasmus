@@ -1,0 +1,16 @@
+{
+  "crawl": false,
+  "customTests": [],
+  "dest": "/PATH/TO/modernizr-output.js",
+  "tests": [
+    "canvas",
+    "canvastext",
+    "geolocation",
+    "json"
+  ],
+  "options": [
+    "mq",
+    "setClasses"
+  ],
+  "uglify": true
+}
