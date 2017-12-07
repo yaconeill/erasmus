@@ -1,4 +1,4 @@
-var query900 = Modernizr.mq('(min-width: 900px)');
+var query900 = Modernizr.mq('(min-width: 1920px)');
 var query768 = Modernizr.mq('(min-width: 768px)');
 var lat,
 	long,
@@ -18,78 +18,56 @@ if (query900) {
 }
 
 /**
- * 
- * @param {*} pointer 
- * @param {*} infoCourse 
+ * Generate the markers on google map with the coordinates
+ * @param {Object} infoCourse - Object array with the locations and courses info
+ * @param {Integer} newMarker - if 1 create the markers
  */
-function myMap(pointer, infoCourse) {
+function myMap(infoCourse, newMarker) {
 	let myCenter = new google.maps.LatLng(lat, long);
-	if (infoCourse != undefined){
-		if (infoCourse.length == 1)
+	if (infoCourse != undefined)
+		// In case there is just one element, set the zoom and center the location
+		if (infoCourse.length == 1){
 			zoom = 7;
-		// myCenter = new google.maps.LatLng(infoCourse[0].latitud, infoCourse[0].longitud);
-	}
-		
-	
-	var mapOptions = {
+			myCenter = {lat: infoCourse[0][2][0], lng: infoCourse[0][2][1]};
+		}
+	var mapCanvas = document.getElementById('googleMap');
+	var map = new google.maps.Map(mapCanvas, {
 		center: myCenter,
 		zoom: zoom
-	};
-	var mapCanvas = document.getElementById('googleMap');
-	var map = new google.maps.Map(mapCanvas, mapOptions);
-
-	if (pointer == 1) {
-		var marcadores = [];
-		
+	});
+	if(newMarker == 1){
+		// Change the aspect of the marker
 		var icon = {url: '../svg/pin.svg', // url
 			scaledSize: new google.maps.Size(60, 60),
 		};
+		// Set the sizes of the map based on all locations
 		var limites = new google.maps.LatLngBounds();
-		
+		// Set the info of the marker
 		var infowindow = new google.maps.InfoWindow();
-
 		var marker,i;
-		
 		for (i = 0; i < infoCourse.length; i++) {
 			
 			marker = new google.maps.Marker({
-				position: new google.maps.LatLng(infoCourse[i].localizacion.latitud, infoCourse[i].localizacion.longitud),				 
+				position: new google.maps.LatLng(infoCourse[i][2][0], infoCourse[i][2][1]),				 
 				animation: google.maps.Animation.BOUNCE,
-				icon: icon,map: map
+				icon: icon,
+				map: map
 			});
-			
-			marcadores.push(marker);			
-			if (infoCourse.length != 1){
-				zoom = 8;
+			marker.setMap(map);
+			if (infoCourse.length != 1)
 				limites.extend(marker.position);
-			}
 			
+			// Create the event to show the infowindow
 			google.maps.event.addListener(marker, 'click', (function(marker, i) {
 				return function() {
-					infowindow.setContent(infoCourse[i].ciclo + '</br>' + infoCourse[i].localizacion.ciudad);
+					infowindow.setContent('<strong>' + infoCourse[i][0] + '</strong></br>' + infoCourse[i][1].join('<br>'));
 					infowindow.open(map, marker);
 				};
 			})(marker, i));
 		}
 		if (infoCourse.length != 1)		
 			map.fitBounds(limites);
-
+		
+		google.maps.event.addDomListener(window, 'load', myMap);
 	}
-		
-	google.maps.event.addDomListener(window, 'load', myMap);
-	// for (i = 0; i < infoCourse.length; i++) {
-	// 	var location = new google.maps.LatLng(infoCourse[i].latitud,infoCourse[i].longitud);
-	// 	marker = new google.maps.Marker({
-	// 		position: location, 
-	// 		animation: google.maps.Animation.BOUNCE,
-	// 		icon: icon});
-	// 	marker.setMap(map);
-	// }
-		
-	// var marker = new google.maps.Marker({
-	// 	position: myCenter, 
-	// 	animation: google.maps.Animation.BOUNCE,
-	// 	icon: icon});
-	// marker.setMap(map);
-	// }
 }

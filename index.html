@@ -14,7 +14,6 @@
 	<link rel="stylesheet" href="css/jquery.bxslider.css">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/index.css" rel="stylesheet">
-	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -46,16 +45,10 @@
 							<a href="index.html">Home</a>
 						</li>
 						<li role="presentation">
-							<a href="ourstory.html">Our Story</a>
+							<a href="js/out/index.html">Documentación</a>
 						</li>
 						<li role="presentation">
-							<a href="events.html">Events</a>
-						</li>
-						<li role="presentation">
-							<a href="gallery.html">Gallery</a>
-						</li>
-						<li role="presentation">
-							<a href="contact.html">Contact</a>
+							<a href="https://yaconeill.github.io/erasmus/">GitHub</a>
 						</li>
 					</ul>
 				</div>
@@ -63,57 +56,80 @@
 		</div>
 	</nav>
 
-	<div class="slider">
-		<div class="img-responsive">
-			<ul class="bxslider">
-				<!-- <li><img src="img/8.jpg" alt=""/></li>								
-				<li><img src="img/9.jpg" alt=""/></li>	
-				<li><img src="img/7.jpg" alt=""/></li>			 -->
-			</ul>
-		</div>
-	</div>
-
 	<div class="jumbotron">
 		<h1>Movilidad Erasmus</h1>
 		<p>
 			Te ubicamos en las ciudades donde se ha realizado la mobilidad Erasmus
-			<br>y los ciclos correspondientes los años anteriores.
+			<br>y los ciclos correspondientes a los años anteriores.
 		</p>
 	</div>
 
 	<div class="container">
-		<div class="form-group text-center">
+		<div class="form-group">
 			<form id="searchOnMap" class="row center-block">
 				<div class="controls">
-					<label for="typeMobility">Tipo de mobilidad</label>
-					<select class="form-control form-control-inline" id="typeMobility">
-					</select>
-					<div class="checkbox form-control-inline">
-						<span> Ciclo</span>
-						<label class="switch">
-							<input type="checkbox" id="toggle">
-							<span class="slider round"></span>
-						</label>
-						<span>País</span>	
-						<button type="button" type="submit" class="btn btn-success" id="submit">Mostrar</button>					
-						<!-- <label>
-							<input type="checkbox" id="toggle">
-							<!-- data-on="País" data-onstyle="success" data-off="Cliclo" data-offstyle="info" data-toggle="toggle" data-width="100"> -->
-						<!-- </label> -->
+					<div class="text-center">
+						<label for="typeMobility">Tipo de mobilidad</label>
+						<select class="form-control form-control-inline" id="typeMobility">
+						</select>
+						<div class="checkbox form-control-inline">
+							<span> Ciclo</span>
+							<label class="switch">
+								<input type="checkbox" id="toggle">
+								<span class="slider"></span>
+							</label>
+							<span>País</span>
+							<button type="button" type="submit" class="btn btn-primary" id="submit">Mostrar</button>
+						</div>
 					</div>
+
 					<br>
 					<br>
 					<div class="form-group">
 						<div id="countryGrp">
-							<label for="country">País</label>
-							<select class="form-control form-control-inline" id="country">
-							</select>
+							<div class="col-md-4 col-md-offset-4">
+								<label for="country">País</label>
+								<select class="form-control" id="country">
+									<option value="0">-- Selecciona un país --</option>
+								</select>
+							</div>
 						</div>
 						<div id="courseGrp">
-							<label for="course">Ciclo</label>
-							<select class="form-control form-control-inline" id="course">
-							</select><br><br>
-							<div class="btn-group" data-toggle="buttons" id="checkCountry"></div>
+							<div class="col-md-12 text-center">
+
+								<div class="checkbox form-control-inline">
+									<span>Marcar todos</span>
+									<label class="switch">
+										<input type="checkbox" id="selectAllCourse">
+										<span class="slider"></span>
+									</label>
+								</div>
+								<div class="checkbox filter form-control-inline">
+									<span class="glyphicon glyphicon-filter"></span> País
+									<label class="switch">
+										<input type="checkbox" id="filter">
+										<span class="slider"></span>
+									</label>
+								</div>
+							</div>
+							<div class="col-md-10 col-sm-offset-2">
+								<div class="text-center">
+									<label for="rolename" id="ciclo">
+										Ciclo
+									</label>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<div id="course">
+										</div>
+									</div>
+								</div>
+								<br>
+								<br>
+								<div class="col-md-12">
+									<div class="btn-group" data-toggle="buttons" id="selectAllCountry"></div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -127,151 +143,13 @@
 			</div>
 		</div>
 	</section>
-	<section class="box">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4">
-					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.4s">
-						<div class="services">
-							<div class="icons">
-								<i class="fa fa-heart-o fa-3x"></i>
-							</div>
-							<h4>Events</h4>
-							<p>
-								praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-							</p>
-						</div>
-					</div>
-					<hr>
-				</div>
-
-				<div class="col-md-4">
-					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.8s">
-						<div class="services">
-							<div class="icons">
-								<i class="fa fa-desktop fa-3x"></i>
-							</div>
-							<h4>Fresh</h4>
-							<p>
-								praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-							</p>
-						</div>
-					</div>
-					<hr>
-				</div>
-
-				<div class="col-md-4">
-					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.2s">
-						<div class="services">
-							<div class="icons">
-								<i class="fa fa-thumbs-o-up fa-3x"></i>
-							</div>
-							<h4>likes</h4>
-							<p>
-								praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-							</p>
-						</div>
-					</div>
-					<hr>
-				</div>
-				<div class="col-md-4">
-					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.4s">
-						<div class="services">
-							<div class="icons">
-								<i class="fa fa-leaf fa-3x"></i>
-							</div>
-							<h4>Business Family</h4>
-							<p>
-								praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-							</p>
-						</div>
-					</div>
-					<hr>
-				</div>
-				<div class="col-md-4">
-					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.8s">
-						<div class="services">
-							<div class="icons">
-								<i class="fa fa-laptop fa-3x"></i>
-							</div>
-							<h4>Free Support</h4>
-							<p>
-								praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-							</p>
-						</div>
-					</div>
-					<hr>
-				</div>
-				<div class="col-md-4">
-					<div class="wow bounceIn" data-wow-offset="0" data-wow-delay="1.2s">
-						<div class="services">
-							<div class="icons">
-								<i class="fa fa-camera fa-3x"></i>
-							</div>
-							<h4>Photography</h4>
-							<p>
-								praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident
-							</p>
-						</div>
-					</div>
-					<hr>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<div class="gallery">
-		<!-- <img src="img/9.jpg" alt="" class="img-responsive" />		 -->
-	</div>
-
 	<footer>
-		<div class="inner-footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4 f-about">
-						<a href="index.html">
-							<h1>Me & Family</h1>
-						</a>
-						<p>We possess within us two minds. So far I have written only of the conscious mind. I would now like to introduce you
-							to your second mind, the hidden and mysterious subconscious. Our subconscious mind contains such power.</p>
-
-					</div>
-					<div class="col-md-4 l-posts">
-						<h3 class="widgetheading">Latest Posts</h3>
-						<ul>
-							<li>
-								<a href="#">This is awesome post title</a>
-							</li>
-							<li>
-								<a href="#">Awesome features are awesome</a>
-							</li>
-							<li>
-								<a href="#">Create your own awesome website</a>
-							</li>
-							<li>
-								<a href="#">Wow, this is fourth post title</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-4 f-contact">
-						<h3 class="widgetheading">Stay in touch</h3>
-						<a href="#">
-							<p>
-								<i class="fa fa-envelope"></i> example@gmail.com</p>
-						</a>
-						<p>
-							<i class="fa fa-phone"></i> +345 578 59 45 416</p>
-						<p>
-							<i class="fa fa-home"></i> Me & Family inc | PO Box 23456 Little Lonsdale St, New York
-							<br> Victoria 8011 USA</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
 		<div class="last-div">
 			<div class="container">
 				<div class="row">
+					<div class="copyright">© 2017 Aymedicoán Mauleón Quintana |
+						<a href="https://github.com/yaconeill">GitHub </a> |
+					</div>
 					<div class="copyright">
 						© 2014 Me & Family Multi-purpose theme |
 						<a href="http://bootstraptaste.com">Bootstraptaste</a>
@@ -281,35 +159,6 @@
                         Licenseing information is available at: http://bootstraptaste.com/license/
                         You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=MeFamily
                     -->
-
-
-					<ul class="social-network">
-						<li>
-							<a href="#" data-placement="top" title="Facebook">
-								<i class="fa fa-facebook fa-1x"></i>
-							</a>
-						</li>
-						<li>
-							<a href="#" data-placement="top" title="Twitter">
-								<i class="fa fa-twitter fa-1x"></i>
-							</a>
-						</li>
-						<li>
-							<a href="#" data-placement="top" title="Linkedin">
-								<i class="fa fa-linkedin fa-1x"></i>
-							</a>
-						</li>
-						<li>
-							<a href="#" data-placement="top" title="Pinterest">
-								<i class="fa fa-pinterest fa-1x"></i>
-							</a>
-						</li>
-						<li>
-							<a href="#" data-placement="top" title="Google plus">
-								<i class="fa fa-google-plus fa-1x"></i>
-							</a>
-						</li>
-					</ul>
 				</div>
 			</div>
 		</div>
@@ -319,20 +168,19 @@
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<!-- <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script src="js/jquery.easing.1.3.js"></script>
 	<script src="js/jquery.bxslider.min.js"></script>
 	<!-- <script src="js/jquery.isotope.min.js"></script> -->
 	<script src="js/fancybox/jquery.fancybox.pack.js"></script>
-	<script src="js/EstructMovilidadesErasmusJSON.json.js"></script>
+	<script src="js/data.json.js"></script>
 	<script src="js/functionCollection.js"></script>
 	<script src="js/index.js"></script>
 	<script>
 		wow = new WOW({
 
-			})
+		})
 			.init();
 	</script>
 </body>

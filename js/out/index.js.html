@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: index.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: index.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * Array that contains medium degree courses object
  */
 var mediumDegree = [];
@@ -143,11 +171,11 @@ btnSubmit.addEventListener('click', generateMarker, false);
 filter.addEventListener('change', function () {
 	let selectCourse = document.querySelectorAll('input.checkCourse');
 	if (filter.checked) {
-		for (let i = 0; i < selectCourse.length; i++)
+		for (let i = 0; i &lt; selectCourse.length; i++)
 			selectCourse[i].addEventListener('change', checkCoursesForCountry, false);
 		selectAllCountry.style.display = 'initial';
 	} else {
-		for (let i = 0; i < selectCourse.length; i++)
+		for (let i = 0; i &lt; selectCourse.length; i++)
 			selectCourse[i].removeEventListener('change', checkCoursesForCountry, false);
 		selectAllCountry.style.display = 'none';
 	}
@@ -181,7 +209,7 @@ function showCountryByCourse(array) {
 	var checkCountry = document.getElementById('selectAllCountry');
 	let tmp = [];
 	// Extract the country name from the given array
-	for (let i = 0; i < array.length; i++) {
+	for (let i = 0; i &lt; array.length; i++) {
 		tmp.push(array[i].pais);
 	}
 	// Call the merge function
@@ -192,7 +220,7 @@ function showCountryByCourse(array) {
 	if (tmp.length > 0) {
 		let btnSelectAll = createElement('label', checkCountry, 'Marcar todos', 'class', 'btn btn-primary', 'for', 'selectAll');
 		var input = createElement('input', btnSelectAll, null, 'type', 'checkbox', 'id', 'selectAll');
-		for (let i = 0; i < tmp.length; i++) {
+		for (let i = 0; i &lt; tmp.length; i++) {
 			let label = createElement('label', checkCountry, tmp[i], 'class', 'btn btn-default', 'for', 'country' + i);
 			createElement('input', label, null, 'type', 'checkbox', 'id', 'country' + i, 'class', 'check');
 		}
@@ -225,7 +253,7 @@ function checkCoursesForCountry() {
 	elementsSendToMap = [];
 	let selectedCourses = document.querySelectorAll('input.checkCourse');
 	for (let e in data)
-		for (let i = 0; i < selectedCourses.length; i++)
+		for (let i = 0; i &lt; selectedCourses.length; i++)
 			if (selectedCourses[i].previousSibling.data == data[e].ciclo)
 				if (selectedCourses[i].checked)
 					elementsSendToMap.push(data[e]);
@@ -243,7 +271,7 @@ function selectedCountry(array, use) {
 	let tmp = [];
 	var courseCheck = document.querySelectorAll('input.checkCourse');	
 	for (let e in data)
-		for (let j = 0; j < array.length; j++) {
+		for (let j = 0; j &lt; array.length; j++) {
 			if (use == 'course') {
 				if (data[e].ciclo == array[j]) {
 					let obj = new Location(data[e].ciclo, data[e].localizacion.ciudad,
@@ -251,8 +279,8 @@ function selectedCountry(array, use) {
 					tmp.push(obj);
 				}
 			} else {
-				for (let i = 0; i < courseCheck.length; i++) {
-					if (data[e].pais == array[j] && data[e].ciclo == courseCheck[i].previousSibling.data) {
+				for (let i = 0; i &lt; courseCheck.length; i++) {
+					if (data[e].pais == array[j] &amp;&amp; data[e].ciclo == courseCheck[i].previousSibling.data) {
 						let obj = new Location(data[e].ciclo, data[e].localizacion.ciudad,
 							data[e].localizacion.latitud, data[e].localizacion.longitud);
 						tmp.push(obj);
@@ -348,16 +376,16 @@ function newFunction(node) {
 */
 function coursesByCity(array) {
 	let cities = [];
-	for (let i = 0; i < array.length; i++)
+	for (let i = 0; i &lt; array.length; i++)
 		cities.push(array[i].city);
 	cities = merge(cities);
 
 	let tmp = [];
-	for (let i = 0; i < cities.length; i++) {
+	for (let i = 0; i &lt; cities.length; i++) {
 		let city = cities[i];
 		let course = [];
 		let location = [];
-		for (let j = 0; j < array.length; j++)
+		for (let j = 0; j &lt; array.length; j++)
 			if (city == array[j].city) {
 				course.push(array[j].course);
 				location.push(array[j].latitud, array[j].longitud);
@@ -377,7 +405,7 @@ function coursesByCity(array) {
 function groupBy(array, idToSearch, all) {
 	let tag = document.getElementById(idToSearch);
 	let tmp = [];
-	for (let i = 0; i < array.length; i++) {
+	for (let i = 0; i &lt; array.length; i++) {
 		if (idToSearch == 'course')
 			tmp.push(array[i].course);
 		if (idToSearch == 'country')
@@ -404,7 +432,7 @@ function merge(a) {
 */
 function writeDropDown(array, id) {
 	let tag = document.getElementById(id);
-	for (let i = 0; i < array.length; i++) {
+	for (let i = 0; i &lt; array.length; i++) {
 		if (id == 'course') {
 			let p = createElement('p', tag, null);
 
@@ -420,4 +448,26 @@ function writeDropDown(array, id) {
 /**
 * Call the initial function
 */
-init();
+init();</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#advanceDegree">advanceDegree</a></li><li><a href="global.html#checkCoursesForCountry">checkCoursesForCountry</a></li><li><a href="global.html#coursesByCity">coursesByCity</a></li><li><a href="global.html#elementsSendToMap">elementsSendToMap</a></li><li><a href="global.html#generateMarker">generateMarker</a></li><li><a href="global.html#groupBy">groupBy</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#loadDataComboBox">loadDataComboBox</a></li><li><a href="global.html#Location">Location</a></li><li><a href="global.html#mediumDegree">mediumDegree</a></li><li><a href="global.html#merge">merge</a></li><li><a href="global.html#myMap">myMap</a></li><li><a href="global.html#newFunction">newFunction</a></li><li><a href="global.html#selectAllCountryCheckBox">selectAllCountryCheckBox</a></li><li><a href="global.html#selectedCountry">selectedCountry</a></li><li><a href="global.html#showCountry">showCountry</a></li><li><a href="global.html#showCountryByCourse">showCountryByCourse</a></li><li><a href="global.html#teacher">teacher</a></li><li><a href="global.html#toggleSelected">toggleSelected</a></li><li><a href="global.html#type">type</a></li><li><a href="global.html#TypeMobility">TypeMobility</a></li><li><a href="global.html#writeDropDown">writeDropDown</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Dec 07 2017 22:07:09 GMT+0000 (Hora estándar GMT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
