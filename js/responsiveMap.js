@@ -39,11 +39,7 @@ function myMap(infoCourse, newMarker) {
         zoom: zoom
     });
     if (newMarker == 1) {
-        // Change the aspect of the marker
-        var icon = {
-            url: 'http://www.primeracoop.com/assets/pin.svg', // url
-            scaledSize: new google.maps.Size(60, 60),
-        };
+
         // Set the sizes of the map based on all locations
         var limites = new google.maps.LatLngBounds();
         // Set the info of the marker
